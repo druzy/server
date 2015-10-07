@@ -1,7 +1,10 @@
 Bibliothèque sous licence MIT
 
-Mini serveur http avec de forte restriction de fichiers
+Compatibilité : linux
 
-Dépendances : utils-1.jar minimum
+Description : Mini serveur http avec de forte restriction de fichiers
 
-Pour construire, utilisez ant sans argument.
+Dépendances : utils-1.jar minimum (libutils)
+Vous pouvez l'installer en ajoutant le ppa ppa:druzy-druzy/jmita
+
+Construction : utilisez ant sans argument.
