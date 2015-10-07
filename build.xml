@@ -21,7 +21,7 @@
 <target name="compile" depends="clean">
 	 
 	<mkdir dir="${bin.dir}"/>
-	<javac srcdir="${src.dir}" destdir="${bin.dir}" classpathref="class.path"/>
+	<javac srcdir="${src.dir}" destdir="${bin.dir}" classpathref="class.path" encoding="UTF-8"/>
 	<echo message="Compilation terminée"/>
 </target>
 
