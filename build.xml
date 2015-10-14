@@ -3,8 +3,9 @@
 <property name="src.dir" value="."/>
 <property name="bin.dir" value="bin"/>
 <property name="jar.dir" value="jar"/>
-<property name="classpath.dir" value="/usr/lib/java/"/>
+<property name="classpath.dir" value="/usr/share/java/"/>
 <property name="version" value="1"/>
+<property name="name" value="server"/>
 	
 <path id="class.path">
 	<fileset dir="${classpath.dir}">
@@ -27,7 +28,7 @@
 
 <target name="jar" depends="compile">
 	<mkdir dir="${jar.dir}"/>
-	<jar destfile="${jar.dir}/server-${version}.jar" basedir="${bin.dir}"/>
+	<jar destfile="${jar.dir}/${name}-${version}.jar" basedir="${bin.dir}"/>
 	<echo message="Création du fichier Jar terminée"/>
 </target>
 
