@@ -19,6 +19,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 
+@SuppressWarnings("restriction")
 public class HandlerRestrictedFileServer implements HttpHandler {
     //variables
 	private static final int DEFAULT_BUFFER_SIZE = 10240; // ..bytes = 10KB.
@@ -34,7 +35,7 @@ public class HandlerRestrictedFileServer implements HttpHandler {
     }
     
 	@Override
-	public void handle(HttpExchange exchange) throws IOException {
+	public void handle(final HttpExchange exchange) throws IOException {
 		basePath="/";
 		if (exchange.getRequestMethod().equals("GET")){
 			//initialisation du fichier à envoyer
@@ -141,7 +142,6 @@ public class HandlerRestrictedFileServer implements HttpHandler {
 		
 		           
 		            if (acceptsGzip) {
-		            	System.out.println("acceptZip");
 		
 		                // The browser accepts GZIP, so GZIP the content.
 		            	exchange.getResponseHeaders().add("Content-Encoding", "gzip");

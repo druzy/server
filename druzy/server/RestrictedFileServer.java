@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import com.sun.net.httpserver.HttpServer;
 
+@SuppressWarnings("restriction")
 public class RestrictedFileServer {
 
 	//variables
@@ -26,14 +28,14 @@ public class RestrictedFileServer {
 		this.authorizedFiles=new ArrayList<File>();
 		this.port=port;
 		try {
-			server=HttpServer.create(new InetSocketAddress(this.port),0);
+			server=HttpServer.create(new InetSocketAddress(this.port),100);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (server!=null){
 			server.createContext("/",new HandlerRestrictedFileServer(this));
-			server.setExecutor(null);
+			server.setExecutor(Executors.newCachedThreadPool());
 		}
 	}
 	
